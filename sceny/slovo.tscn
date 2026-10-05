@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cr6vo1c5td7pw"]
+
+[ext_resource type="Script" uid="uid://kxglhqe1d5l0" path="res://sceny/slovo.gd" id="1_j8ahq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsmsb"]
+font_size = 35
+
+[node name="Slovo" type="HBoxContainer" unique_id=783301425 groups=["slova"]]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+script = ExtResource("1_j8ahq")
+
+[node name="Original" type="Label" parent="." unique_id=347371715]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PES"
+label_settings = SubResource("LabelSettings_nsmsb")
+horizontal_alignment = 1
+
+[node name="Preklad" type="Label" parent="." unique_id=1389085168]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DOG"
+label_settings = SubResource("LabelSettings_nsmsb")
+horizontal_alignment = 1

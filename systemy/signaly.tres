@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://dsnr8er341thx"]
+
+[ext_resource type="Script" uid="uid://cdt0mxi2e8jbi" path="res://systemy/Signaly.gd" id="1_ain3o"]
+
+[resource]
+script = ExtResource("1_ain3o")

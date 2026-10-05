@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ckleopg2441yi"]
+
+[ext_resource type="Script" uid="uid://15da2u6jrr8b" path="res://instance/vrah.gd" id="1_j1siq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_plrnn"]
+font_size = 20
+
+[node name="Vrah" type="Button" unique_id=107112508]
+custom_minimum_size = Vector2(100, 150)
+offset_right = 100.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_j1siq")
+
+[node name="Okraje" type="MarginContainer" parent="." unique_id=1178926326]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 150.0
+
+[node name="Dole" type="VBoxContainer" parent="Okraje" unique_id=617154381]
+layout_mode = 2
+alignment = 2
+
+[node name="Udaje" type="VBoxContainer" parent="Okraje/Dole" unique_id=2029896173]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Odhaleno" type="Label" parent="Okraje/Dole/Udaje" unique_id=76649296]
+custom_minimum_size = Vector2(0, 30)
+clip_contents = true
+layout_mode = 2
+text = "***"
+label_settings = SubResource("LabelSettings_plrnn")
+horizontal_alignment = 1
+
+[node name="Preklad" type="Label" parent="Okraje/Dole/Udaje" unique_id=247367258]
+layout_mode = 2
+text = "PES"
+label_settings = SubResource("LabelSettings_plrnn")
+horizontal_alignment = 1
+
+[node name="Ikona" type="Polygon2D" parent="." unique_id=1035560682]
+position = Vector2(0, 18)
+scale = Vector2(1.1, 1.1)
+color = Color(1, 0.36078432, 0.36078432, 1)
+polygon = PackedVector2Array(28, 48, 33.57155, 47.755753, 38.48802, 29.673965, 43.382034, 47.458466, 51, 48, 44, 24, 43.50797, 14.9505005, 54, 21, 55.818222, 24.779757, 68.041275, 29.434078, 60.95543, 20.08927, 56, 19, 45.45778, 10.390913, 41, 6, 40, 3, 42, 1, 42, -5, 40, -8, 32, -8, 30, -4, 30, 0, 32, 2, 32, 6, 28, 11, 13, 19, 9.217432, 21.899168, 10.132765, 24.111223, 14, 24, 29.436508, 14.9505005, 31.997986, 24.412632, 31, 32)
+uv = PackedVector2Array(28, 48, 36, 48, 39, 34, 41, 47, 51, 48, 44, 24, 44, 14, 54, 21, 51, 25, 65, 32, 58, 18, 56, 19, 46, 12, 41, 6, 40, 3, 42, 1, 42, -5, 40, -8, 32, -8, 30, -4, 30, 0, 32, 2, 32, 6, 28, 11, 13, 19, 8, 19, 9, 25, 14, 24, 28, 15, 31, 24, 31, 32)
+
+[node name="Osa" type="Marker2D" parent="." unique_id=727114283]
+position = Vector2(50, 0)
+
+[connection signal="pressed" from="." to="." method="stisk"]

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://dru12gn63xyxn"]
+
+[ext_resource type="Script" uid="uid://o71pj220pt6s" path="res://systemy/Databaze.gd" id="1_dt2n8"]
+
+[resource]
+script = ExtResource("1_dt2n8")
