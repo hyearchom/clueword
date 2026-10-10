@@ -12,13 +12,13 @@ func nove_kolo() -> void:
 		var slovo = SLOVO.instantiate()
 		Slova.add_child(slovo)
 		var zaznam = vybrat_zaznam()
-		slovo.nova_hadanka(zaznam, Databaze.soubor[zaznam].preklad)
+		slovo.nova_hadanka(zaznam, Databaze.tabulka[zaznam].preklad)
 		
 
 func vybrat_zaznam() -> String:
 	var zaznam: String
 	while true: 
-		zaznam = Databaze.soubor.keys().pick_random()
+		zaznam = Databaze.tabulka.keys().pick_random()
 		if zaznam not in vybrano:
 			break
 	vybrano.append(zaznam)
