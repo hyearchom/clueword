@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cr6vo1c5td7pw"]
 
-[ext_resource type="Script" uid="uid://kxglhqe1d5l0" path="res://sceny/slovo.gd" id="1_j8ahq"]
+[ext_resource type="Script" uid="uid://kxglhqe1d5l0" path="res://instance/slovo.gd" id="1_j8ahq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsmsb"]
 font_size = 35

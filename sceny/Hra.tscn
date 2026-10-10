@@ -9,20 +9,24 @@
 font_size = 50
 font_color = Color(1, 0.36078432, 0.36078432, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7enp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imq26"]
+[sub_resource type="LabelSettings" id="LabelSettings_imq26"]
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_j7enp"]
 font_size = 50
 outline_size = 2
 outline_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7enp"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imq26"]
+
 [node name="Hra" type="Node" unique_id=787140434]
 script = ExtResource("1_imq26")
-
-[node name="Hadani" type="Node" parent="." unique_id=778571409]
-script = ExtResource("2_cxnpc")
 
 [node name="Pozadi" type="ColorRect" parent="." unique_id=575812803]
 offset_left = 10.0
@@ -45,6 +49,11 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("2_imq26")
 
+[node name="Hadani" type="LineEdit" parent="Mapa" unique_id=565892568]
+z_index = -1
+layout_mode = 2
+script = ExtResource("2_cxnpc")
+
 [node name="Prvky" type="VBoxContainer" parent="Mapa" unique_id=1965874803]
 clip_contents = true
 layout_mode = 2
@@ -64,22 +73,35 @@ alignment = 1
 
 [node name="Stav" type="VBoxContainer" parent="Mapa/Prvky/Dole" unique_id=170100127]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/separation = 10
 
-[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=354746637 node_paths=PackedStringArray("Hadani")]
+[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani")]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_nsmsb")
 horizontal_alignment = 1
 script = ExtResource("4_j7enp")
-Hadani = NodePath("../../../../../Hadani")
+Hadani = NodePath("../../../../Hadani")
 
-[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Dole/Stav" unique_id=1171116385]
-custom_minimum_size = Vector2(250, 70)
+[node name="Pouzita" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=920881563]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_j7enp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_imq26")
-text = "NOVÁ HRA"
+
+[node name="Mezera" type="Control" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=1830581555]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Popis" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=354746637]
+layout_mode = 2
+text = "Hádáno:"
+label_settings = SubResource("LabelSettings_imq26")
+horizontal_alignment = 1
+
+[node name="Pismena" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=125522149]
+layout_mode = 2
+text = " "
+label_settings = SubResource("LabelSettings_imq26")
+horizontal_alignment = 1
 
 [node name="Oznameni" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=940126716]
 layout_mode = 2
@@ -87,4 +109,16 @@ label_settings = SubResource("LabelSettings_j7enp")
 horizontal_alignment = 1
 uppercase = true
 
-[connection signal="pressed" from="Mapa/Prvky/Dole/Stav/Nova_hra" to="." method="_nova_hra"]
+[node name="NaStred" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=1142734582]
+layout_mode = 2
+alignment = 1
+
+[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Dole/Stav/NaStred" unique_id=1646957082]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7enp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_imq26")
+text = "NOVÁ HRA"
+
+[connection signal="text_changed" from="Mapa/Hadani" to="Mapa/Hadani" method="_overit_pismeno"]

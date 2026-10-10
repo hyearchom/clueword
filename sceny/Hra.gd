@@ -1,7 +1,7 @@
 extends Node
 
 @onready var Mapa: MarginContainer = $Mapa
-@onready var Hadani: Node = $Hadani
+@onready var Hadani: Node = $Mapa/Hadani
 @onready var Stav: VBoxContainer = $Mapa/Prvky/Dole/Stav
 @onready var Chyby: Label = Stav.get_node(^"Chyby")
 @onready var Oznameni: Label = Stav.get_node(^"Oznameni")
