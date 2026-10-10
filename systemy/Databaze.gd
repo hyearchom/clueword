@@ -2,11 +2,11 @@ extends Resource
 
 var tabulka: Dictionary
 
-const CSV_CESTA = "res://slovnik.csv"
+#const CSV_CESTA = "res://slovnik.csv"
 
 
-func _init() -> void:
-	importuj_csv(CSV_CESTA)
+#func _init() -> void:
+	#importuj_csv(CSV_CESTA)
 	#print(tabulka)
 
 
@@ -44,7 +44,7 @@ func importuj_csv(cesta: String) -> void:
 		# 5. Zpracování běžných datových řádků
 		zpracuj_datovy_radek(hlavicka, radek)
 
-	print("Import CSV dat byl úspěšně dokončen.")
+	#print("Import CSV dat byl úspěšně dokončen.")
 
 
 func zpracuj_datovy_radek(hlavicka: PackedStringArray, radek: PackedStringArray) -> void:

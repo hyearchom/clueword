@@ -8,7 +8,7 @@ extends Node
 
 
 func _ready() -> void:
-	_nova_hra()
+	#_nova_hra()
 	Chyby.prohra.connect(konec_hry)
 	Hadani.vyhra.connect(kolo_vyreseno)
 
@@ -27,7 +27,7 @@ func kolo_vyreseno() -> void:
 	vypsat("Výhra")
 
 
-func _nova_hra() -> void:
+func nova_hra() -> void:
 	get_tree().call_group(&"slova", "queue_free")
 	vypsat("")
 	Chyby.vynulovat()
