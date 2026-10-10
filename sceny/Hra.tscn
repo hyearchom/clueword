@@ -89,7 +89,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani")]
+[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani") groups=["chyby"]]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_nsmsb")
 horizontal_alignment = 1

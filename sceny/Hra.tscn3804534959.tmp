@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://ctvyxn3egr5bj"]
+
+[ext_resource type="Script" uid="uid://p3uda38csk47" path="res://sceny/Hra.gd" id="1_imq26"]
+[ext_resource type="Script" uid="uid://dcqcha2b87ub4" path="res://sceny/Hadani.gd" id="2_cxnpc"]
+[ext_resource type="Script" uid="uid://dsi3a1030k823" path="res://sceny/Mapa.gd" id="2_imq26"]
+[ext_resource type="Script" uid="uid://x56egu836x1x" path="res://sceny/Chyby.gd" id="4_j7enp"]
+[ext_resource type="Script" uid="uid://c8n06uxdltk3i" path="res://systemy/Importovat.gd" id="5_cxnpc"]
+[ext_resource type="Script" uid="uid://dsmpt0ajfoeva" path="res://systemy/vyber_souboru.gd" id="5_imq26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxnpc"]
+bg_color = Color(0.44705883, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7enp"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_cxnpc"]
+Button/styles/hover = SubResource("StyleBoxFlat_cxnpc")
+Button/styles/normal = SubResource("StyleBoxFlat_j7enp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsmsb"]
+font_size = 50
+font_color = Color(1, 0.36078432, 0.36078432, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_imq26"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7enp"]
+font_size = 50
+outline_size = 2
+outline_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+
+[node name="Hra" type="Node" unique_id=787140434]
+script = ExtResource("1_imq26")
+
+[node name="Pozadi" type="ColorRect" parent="." unique_id=575812803]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 710.0
+offset_bottom = 1270.0
+color = Color(0.21950084, 0.21950105, 0.21950102, 1)
+
+[node name="Mapa" type="MarginContainer" parent="." unique_id=1911519941]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_cxnpc")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("2_imq26")
+
+[node name="Hadani" type="LineEdit" parent="Mapa" unique_id=565892568]
+z_index = -1
+layout_mode = 2
+script = ExtResource("2_cxnpc")
+
+[node name="Prvky" type="VBoxContainer" parent="Mapa" unique_id=1965874803]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Slova" type="VBoxContainer" parent="Mapa/Prvky" unique_id=106663698]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Dole" type="HBoxContainer" parent="Mapa/Prvky" unique_id=1650166470]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Stav" type="VBoxContainer" parent="Mapa/Prvky/Dole" unique_id=170100127]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani") groups=["chyby"]]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_nsmsb")
+horizontal_alignment = 1
+script = ExtResource("4_j7enp")
+Hadani = NodePath("../../../../Hadani")
+
+[node name="Pouzita" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=920881563]
+layout_mode = 2
+
+[node name="Mezera" type="Control" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=1830581555]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Popis" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=354746637]
+layout_mode = 2
+text = "Hádáno:"
+label_settings = SubResource("LabelSettings_imq26")
+horizontal_alignment = 1
+
+[node name="Pismena" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=125522149]
+layout_mode = 2
+size_flags_horizontal = 3
+text = " "
+label_settings = SubResource("LabelSettings_imq26")
+horizontal_alignment = 1
+
+[node name="Oznameni" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=940126716]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_j7enp")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="NaStred" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=1142734582]
+layout_mode = 2
+alignment = 1
+
+[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Dole/Stav/NaStred" unique_id=1646957082]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "NOVÁ HRA"
+
+[node name="NaStred2" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=1599799356]
+layout_mode = 2
+alignment = 1
+
+[node name="Importovat" type="Button" parent="Mapa/Prvky/Dole/Stav/NaStred2" unique_id=1931515881 node_paths=PackedStringArray("Vyber_souboru", "Hra")]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "IMPORT"
+script = ExtResource("5_cxnpc")
+Vyber_souboru = NodePath("../../../../../../Vyber_souboru")
+Hra = NodePath("../../../../../..")
+
+[node name="Vyber_souboru" type="FileDialog" parent="." unique_id=71185896]
+oversampling_override = 1.0
+script = ExtResource("5_imq26")
+
+[connection signal="text_changed" from="Mapa/Hadani" to="Mapa/Hadani" method="_overit_pismeno"]
+[connection signal="pressed" from="Mapa/Prvky/Dole/Stav/NaStred/Nova_hra" to="." method="nova_hra"]
+[connection signal="pressed" from="Mapa/Prvky/Dole/Stav/NaStred2/Importovat" to="Mapa/Prvky/Dole/Stav/NaStred2/Importovat" method="_stisk"]

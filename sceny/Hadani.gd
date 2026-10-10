@@ -28,7 +28,9 @@ func aktivace(stav:bool) -> void:
 	#set_process_unhandled_key_input(stav)
 	if stav:
 		grab_focus()
-	
+	else:
+		release_focus()
+
 #func zobrazit_klavesnici() -> void:
 	#DisplayServer.virtual_keyboard_show(
 		#"",                                   # existing text
