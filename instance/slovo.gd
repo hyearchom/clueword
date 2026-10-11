@@ -27,7 +27,7 @@ func nova_hadanka(originalni_vyrok:String, prelozeny_vyrok:String) -> void:
 	hadanka = randi_range(0,1)
 	dvojice[hadanka].text = zakodovat(dvojice[hadanka].text)
 	
-	Databaze.zmenit_uroven(original, Chyby.MAXIMUM -1)
+	Databaze.zmenit_uroven(original, int(Chyby.MAXIMUM -1))
 
 func zakodovat(slovo: String) -> String:
 	var tajemka: String = ""
@@ -63,5 +63,4 @@ func zviditelnit(pismeno: String, seznam_pozic: Array):
 		hadane_slovo.text[pozice] = pismeno
 	if not "*" in hadane_slovo.text:
 		vyreseno = true
-		Databaze.zmenit_uroven(original, -Chyby.pocet +Chyby.MAXIMUM)
-		#Databaze.ulozit_tabulku()
+		Databaze.zmenit_uroven(original, int(-Chyby.MAXIMUM +Chyby.pocet))

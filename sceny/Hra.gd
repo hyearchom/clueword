@@ -2,10 +2,10 @@ extends Node
 
 @onready var Mapa: MarginContainer = $Mapa
 @onready var Hadani: Node = $Mapa/Hadani
-@onready var Stav: VBoxContainer = $Mapa/Prvky/Dole/Stav
+@onready var Stav: VBoxContainer = $Mapa/Prvky/Stav
 @onready var Chyby: Label = Stav.get_node(^"Chyby")
 @onready var Oznameni: Label = Stav.get_node(^"Oznameni")
-@onready var Pouzita: Label = $Mapa/Prvky/Dole/Stav/Pouzita/Pismena
+@onready var Pouzita: Label = $Mapa/Prvky/Stav/Pouzita/Pismena
 
 
 func _ready() -> void:
@@ -35,3 +35,7 @@ func nova_hra() -> void:
 	Chyby.vynulovat()
 	Mapa.nove_kolo()
 	Hadani.aktivace(true)
+
+
+func zavrit() -> void:
+	get_tree().quit()

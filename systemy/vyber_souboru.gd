@@ -2,7 +2,10 @@ extends FileDialog
 
 
 func _ready() -> void:
+	use_native_dialog = true
 	access = FileDialog.ACCESS_FILESYSTEM
+	file_mode = FileDialog.FILE_MODE_OPEN_FILE
+	filters = PackedStringArray(["*.csv; Tabulka"])
 	#current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
 	canceled.connect(vycistit)
 	file_selected.connect(vycistit.unbind(1))
@@ -11,16 +14,12 @@ func _ready() -> void:
 
 func zobrazit() -> void:
 	show()
-	popup()
-	file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	filters = PackedStringArray(["*.csv; Tabulka"])
-	#else:
-		#file_mode = FileDialog.FILE_MODE_OPEN_DIR
-		#filters = PackedStringArray([])
 
 
 func vycistit() -> void:
+	hide()
 	clear_filters()
 	current_file = ""
 	current_path = ""
 	deselect_all()
+	

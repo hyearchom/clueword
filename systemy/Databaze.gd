@@ -1,9 +1,8 @@
 extends Resource
 
 var tabulka: Dictionary
+var hlavicka: PackedStringArray = [] #For saving purposes
 var cesta_k_tabulce: String
-
-var hlavicka: PackedStringArray = []
 
 
 func importuj_csv(cesta: String) -> void:
@@ -63,6 +62,9 @@ func zpracuj_datovy_radek(radek: PackedStringArray) -> void:
 
 
 func ulozit_tabulku() -> void:
+	if not tabulka:
+		return
+	
 	var soubor := FileAccess.open(cesta_k_tabulce, FileAccess.WRITE)
 	if soubor == null:
 		push_warning("Nelze otevřít soubor tabulky")
@@ -81,6 +83,7 @@ func ulozit_tabulku() -> void:
 
 
 func zmenit_uroven(slovo: String, hodnota: int) -> void:
+	#printt(tabulka[slovo].uroven, hodnota)
 	tabulka[slovo].uroven += hodnota
 	tabulka[slovo].uroven = max(0, tabulka[slovo].uroven)
 

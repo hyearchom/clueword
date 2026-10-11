@@ -5,7 +5,7 @@ signal vyhra
 
 var souhrn_odpovedi: Array
 
-@onready var Pouzite: Label = $"../Prvky/Dole/Stav/Pouzita/Pismena"
+@onready var Pouzite: Label = $"../Prvky/Stav/Pouzita/Pismena"
 
 func _ready() -> void:
 	aktivace(false)

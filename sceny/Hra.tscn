@@ -56,7 +56,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_cxnpc")
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("2_imq26")
@@ -77,78 +77,81 @@ clip_contents = true
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Dole" type="HBoxContainer" parent="Mapa/Prvky" unique_id=1650166470]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-size_flags_vertical = 0
-alignment = 1
-
-[node name="Stav" type="VBoxContainer" parent="Mapa/Prvky/Dole" unique_id=170100127]
+[node name="Stav" type="VBoxContainer" parent="Mapa/Prvky" unique_id=170100127]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Chyby" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani") groups=["chyby"]]
+[node name="Chyby" type="Label" parent="Mapa/Prvky/Stav" unique_id=1447657097 node_paths=PackedStringArray("Hadani") groups=["chyby"]]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_nsmsb")
 horizontal_alignment = 1
 script = ExtResource("4_j7enp")
-Hadani = NodePath("../../../../Hadani")
+Hadani = NodePath("../../../Hadani")
 
-[node name="Pouzita" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=920881563]
+[node name="Pouzita" type="HBoxContainer" parent="Mapa/Prvky/Stav" unique_id=920881563]
 layout_mode = 2
 
-[node name="Mezera" type="Control" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=1830581555]
+[node name="Mezera" type="Control" parent="Mapa/Prvky/Stav/Pouzita" unique_id=1830581555]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="Popis" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=354746637]
+[node name="Popis" type="Label" parent="Mapa/Prvky/Stav/Pouzita" unique_id=354746637]
 layout_mode = 2
 text = "Hádáno:"
 label_settings = SubResource("LabelSettings_imq26")
 horizontal_alignment = 1
 
-[node name="Pismena" type="Label" parent="Mapa/Prvky/Dole/Stav/Pouzita" unique_id=125522149]
+[node name="Pismena" type="Label" parent="Mapa/Prvky/Stav/Pouzita" unique_id=125522149]
 layout_mode = 2
 size_flags_horizontal = 3
 text = " "
 label_settings = SubResource("LabelSettings_imq26")
 horizontal_alignment = 1
 
-[node name="Oznameni" type="Label" parent="Mapa/Prvky/Dole/Stav" unique_id=940126716]
+[node name="Oznameni" type="Label" parent="Mapa/Prvky/Stav" unique_id=940126716]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_j7enp")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="NaStred" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=1142734582]
+[node name="NaStred" type="HBoxContainer" parent="Mapa/Prvky/Stav" unique_id=1142734582]
 layout_mode = 2
 alignment = 1
 
-[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Dole/Stav/NaStred" unique_id=1646957082]
+[node name="PodSebou" type="VBoxContainer" parent="Mapa/Prvky/Stav/NaStred" unique_id=1591540971]
+layout_mode = 2
+
+[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1646957082]
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "NOVÁ HRA"
+text = "DALŠÍ KOLO"
 
-[node name="NaStred2" type="HBoxContainer" parent="Mapa/Prvky/Dole/Stav" unique_id=1599799356]
+[node name="VedleSebe" type="HBoxContainer" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1525159321]
 layout_mode = 2
-alignment = 1
 
-[node name="Importovat" type="Button" parent="Mapa/Prvky/Dole/Stav/NaStred2" unique_id=1931515881 node_paths=PackedStringArray("Vyber_souboru", "Hra")]
+[node name="Importovat" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe" unique_id=1931515881 node_paths=PackedStringArray("Vyber_souboru", "Hra")]
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "IMPORT"
 script = ExtResource("5_cxnpc")
-Vyber_souboru = NodePath("../../../../../../Vyber_souboru")
-Hra = NodePath("../../../../../..")
+Vyber_souboru = NodePath("../../../../../../../Vyber_souboru")
+Hra = NodePath("../../../../../../..")
+
+[node name="Ukoncit" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe" unique_id=1910250768]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "KONEC"
 
 [node name="Vyber_souboru" type="FileDialog" parent="." unique_id=71185896]
 oversampling_override = 1.0
 script = ExtResource("5_imq26")
 
 [connection signal="text_changed" from="Mapa/Hadani" to="Mapa/Hadani" method="_overit_pismeno"]
-[connection signal="pressed" from="Mapa/Prvky/Dole/Stav/NaStred/Nova_hra" to="." method="nova_hra"]
-[connection signal="pressed" from="Mapa/Prvky/Dole/Stav/NaStred2/Importovat" to="Mapa/Prvky/Dole/Stav/NaStred2/Importovat" method="_stisk"]
+[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/Nova_hra" to="." method="nova_hra"]
+[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Importovat" to="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Importovat" method="_stisk"]
+[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Ukoncit" to="." method="zavrit"]
