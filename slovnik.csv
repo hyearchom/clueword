@@ -29,7 +29,7 @@ ambiguity,dvojznačnost,0
 stall motor,zarazit motor,0
 thorougly,důkladně,0
 consonant,souhláska,0
-bum,tulák,12
+bum,tulák,36
 crude,surový,0
 ravage,zničit,0
 hummingbird,kolibřík,0
@@ -60,7 +60,7 @@ epiphany,prozření,0
 fumble,přehmat,0
 despondent,sklíčený,0
 vigor,ráznost,0
-fortitude,odolnost,12
+fortitude,odolnost,36
 affable,přívětivý,0
 entail,zahrnovat,0
 stifle,dusit,0
@@ -139,11 +139,12 @@ frugal,úsporný,0
 scrutiny,kontrola,0
 cilantro,koriandr,0
 infallible,neomylný,0
-default,prodlení,12
-valiant,udatný,0
+default,prodlení,40
+valiant,udatný,4
 slice,plátek,0
 scoff,posmívat se,0
 coax,uchlácholit,0
 clinch,skoba,0
 fallacy,klam,0
 entrail,vnitřnosti,0
+dog,pes,18

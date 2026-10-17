@@ -6,6 +6,7 @@ extends Node
 @onready var Chyby: Label = Stav.get_node(^"Chyby")
 @onready var Oznameni: Label = Stav.get_node(^"Oznameni")
 @onready var Pouzita: Label = $Mapa/Prvky/Stav/Pouzita/Pismena
+@onready var Nova_hra: Button = $Mapa/Prvky/Stav/NaStred/PodSebou/Nova_hra
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func nova_hra() -> void:
 	Chyby.vynulovat()
 	Mapa.nove_kolo()
 	Hadani.aktivace(true)
+	Nova_hra.show()
 
 
 func zavrit() -> void:

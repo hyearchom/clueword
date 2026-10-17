@@ -12,3 +12,4 @@ func _stisk() -> void:
 func _nahrat_data(cesta:String) -> void:
 	Databaze.importuj_csv(cesta)
 	Hra.nova_hra()
+	hide()

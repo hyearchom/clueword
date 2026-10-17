@@ -1,4 +1,7 @@
-FileDialog
-Control
+Label
+Button
 HBoxContainer
 LineEdit
+VBoxContainer
+FileDialog
+Control

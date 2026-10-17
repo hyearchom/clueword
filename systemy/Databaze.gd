@@ -109,3 +109,14 @@ func vybrat_procviceni(pocet:int) -> Array:
 					return vyber
 	# tohle je jen, aby byl ticho debugger
 	return []
+
+
+func pridat_zaznam(original:String, preklad:String, uroven: int) -> void:
+	if not tabulka:
+		push_error("Chybí tabulka")
+		return
+	
+	if not tabulka.has(original):
+		tabulka[original] = {"preklad": preklad, "uroven": uroven}
+	
+	#print(tabulka[original])

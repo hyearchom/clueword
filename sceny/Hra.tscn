@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://x56egu836x1x" path="res://sceny/Chyby.gd" id="4_j7enp"]
 [ext_resource type="Script" uid="uid://c8n06uxdltk3i" path="res://systemy/Importovat.gd" id="5_cxnpc"]
 [ext_resource type="Script" uid="uid://dsmpt0ajfoeva" path="res://systemy/vyber_souboru.gd" id="5_imq26"]
+[ext_resource type="Script" uid="uid://ccu0fph7ory2i" path="res://sceny/pridat_slovo.gd" id="6_4x2t1"]
+[ext_resource type="Script" uid="uid://dcagqh4btxymo" path="res://sceny/pocet_slov.gd" id="7_xpy4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxnpc"]
 bg_color = Color(0.44705883, 0, 0, 1)
@@ -23,6 +25,7 @@ corner_radius_bottom_left = 8
 [sub_resource type="Theme" id="Theme_cxnpc"]
 Button/styles/hover = SubResource("StyleBoxFlat_cxnpc")
 Button/styles/normal = SubResource("StyleBoxFlat_j7enp")
+LineEdit/font_sizes/font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsmsb"]
 font_size = 50
@@ -35,6 +38,35 @@ font_size = 30
 font_size = 50
 outline_size = 2
 outline_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x2t1"]
+bg_color = Color(0.44705883, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44705883, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut5n0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.33333334, 0.33333334, 0.33333334, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_of63n"]
+Button/font_sizes/font_size = 45
+Button/styles/hover = SubResource("StyleBoxFlat_4x2t1")
+Button/styles/normal = SubResource("StyleBoxFlat_ut5n0")
 
 [node name="Hra" type="Node" unique_id=787140434]
 script = ExtResource("1_imq26")
@@ -121,37 +153,91 @@ layout_mode = 2
 alignment = 1
 
 [node name="PodSebou" type="VBoxContainer" parent="Mapa/Prvky/Stav/NaStred" unique_id=1591540971]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1646957082]
-custom_minimum_size = Vector2(250, 70)
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "DALŠÍ KOLO"
-
-[node name="VedleSebe" type="HBoxContainer" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1525159321]
-layout_mode = 2
-
-[node name="Importovat" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe" unique_id=1931515881 node_paths=PackedStringArray("Vyber_souboru", "Hra")]
+[node name="Importovat" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1931515881 node_paths=PackedStringArray("Vyber_souboru", "Hra")]
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "IMPORT"
 script = ExtResource("5_cxnpc")
-Vyber_souboru = NodePath("../../../../../../../Vyber_souboru")
-Hra = NodePath("../../../../../../..")
+Vyber_souboru = NodePath("../../../../../../Vyber_souboru")
+Hra = NodePath("../../../../../..")
 
-[node name="Ukoncit" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe" unique_id=1910250768]
+[node name="Nova_hra" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1646957082]
+visible = false
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "DALŠÍ KOLO"
+
+[node name="Ukoncit" type="Button" parent="Mapa/Prvky/Stav/NaStred/PodSebou" unique_id=1910250768]
 custom_minimum_size = Vector2(250, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KONEC"
+
+[node name="Nastaveni" type="VBoxContainer" parent="Mapa/Prvky" unique_id=309646455]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Pridat_slovo" type="HBoxContainer" parent="Mapa/Prvky/Nastaveni" unique_id=969872134]
+layout_mode = 2
+alignment = 1
+script = ExtResource("6_4x2t1")
+
+[node name="Original" type="LineEdit" parent="Mapa/Prvky/Nastaveni/Pridat_slovo" unique_id=1573640364]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "originál"
+alignment = 1
+
+[node name="Preklad" type="LineEdit" parent="Mapa/Prvky/Nastaveni/Pridat_slovo" unique_id=1836507132]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+placeholder_text = "překlad"
+alignment = 1
+
+[node name="Pridat" type="Button" parent="Mapa/Prvky/Nastaveni/Pridat_slovo" unique_id=2108851192]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "PŘIDAT"
+
+[node name="Pocet_slov" type="HBoxContainer" parent="Mapa/Prvky/Nastaveni" unique_id=1701299444]
+layout_mode = 2
+theme = SubResource("Theme_of63n")
+alignment = 1
+script = ExtResource("7_xpy4i")
+
+[node name="Mene" type="Button" parent="Mapa/Prvky/Nastaveni/Pocet_slov" unique_id=1564477791]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+text = "<"
+
+[node name="Pocet" type="Label" parent="Mapa/Prvky/Nastaveni/Pocet_slov" unique_id=1560072127]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "3"
+horizontal_alignment = 1
+
+[node name="Vice" type="Button" parent="Mapa/Prvky/Nastaveni/Pocet_slov" unique_id=297959880]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+text = ">"
 
 [node name="Vyber_souboru" type="FileDialog" parent="." unique_id=71185896]
 oversampling_override = 1.0
 script = ExtResource("5_imq26")
 
 [connection signal="text_changed" from="Mapa/Hadani" to="Mapa/Hadani" method="_overit_pismeno"]
+[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/Importovat" to="Mapa/Prvky/Stav/NaStred/PodSebou/Importovat" method="_stisk"]
 [connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/Nova_hra" to="." method="nova_hra"]
-[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Importovat" to="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Importovat" method="_stisk"]
-[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/VedleSebe/Ukoncit" to="." method="zavrit"]
+[connection signal="pressed" from="Mapa/Prvky/Stav/NaStred/PodSebou/Ukoncit" to="." method="zavrit"]
+[connection signal="pressed" from="Mapa/Prvky/Nastaveni/Pridat_slovo/Pridat" to="Mapa/Prvky/Nastaveni/Pridat_slovo" method="_pridat_slovo"]
+[connection signal="pressed" from="Mapa/Prvky/Nastaveni/Pocet_slov/Mene" to="Mapa/Prvky/Nastaveni/Pocet_slov" method="zmenit" binds= [-1]]
+[connection signal="pressed" from="Mapa/Prvky/Nastaveni/Pocet_slov/Vice" to="Mapa/Prvky/Nastaveni/Pocet_slov" method="zmenit" binds= [1]]
